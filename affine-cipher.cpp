@@ -1,11 +1,11 @@
-/*1£©ÓÃC\C++ÓïÑÔÊµÏÖµ¥±í·ÂÉä£¨Affine£©¼Ó/½âÃÜËã·¨£»
-2£©ÓÃC\C++ÓïÑÔÊµÏÖÍ³¼Æ26¸öÓ¢ÎÄ×ÖÄ¸³öÏÖÆµÂÊµÄ³ÌÐò£»
-3£©ÀûÓÃµ¥±í·ÂÉä¼Ó/½âÃÜ³ÌÐò¶ÔÒ»¶Î½Ï³¤µÄÓ¢ÎÄÎÄÕÂ½øÐÐ¼ÓÃÜ£¬ÔÙ¶ÔÃ÷ÎÄºÍÃÜÎÄÖÐ×ÖÄ¸³öÏÖµÄÆµÂÊ½øÐÐÍ³¼Æ²¢×÷¶Ô±È£¬¹Û²ìÓÐÊ²Ã´¹æÂÉ¡£
-    ·ÂÉä±ä»»£º
-¼ÓÃÜ£º 
-½âÃÜ£º 
-ÆäÖÐ£¬k1ºÍk2ÎªÃÜÔ¿£¬k1¡ÊZq£¬k2¡ÊZq*¡£
-ÊµÑéÒªÇó£º¼Ó/½âÃÜ³ÌÐò¶ÔÈÎÒâÂú×ãÌõ¼þµÄk1ºÍk2¶¼ÄÜ¹»´¦Àí¡£
+/*1ï¼‰ç”¨C\C++è¯­è¨€å®žçŽ°å•è¡¨ä»¿å°„ï¼ˆAffineï¼‰åŠ /è§£å¯†ç®—æ³•ï¼›
+2ï¼‰ç”¨C\C++è¯­è¨€å®žçŽ°ç»Ÿè®¡26ä¸ªè‹±æ–‡å­—æ¯å‡ºçŽ°é¢‘çŽ‡çš„ç¨‹åºï¼›
+3ï¼‰åˆ©ç”¨å•è¡¨ä»¿å°„åŠ /è§£å¯†ç¨‹åºå¯¹ä¸€æ®µè¾ƒé•¿çš„è‹±æ–‡æ–‡ç« è¿›è¡ŒåŠ å¯†ï¼Œå†å¯¹æ˜Žæ–‡å’Œå¯†æ–‡ä¸­å­—æ¯å‡ºçŽ°çš„é¢‘çŽ‡è¿›è¡Œç»Ÿè®¡å¹¶ä½œå¯¹æ¯”ï¼Œè§‚å¯Ÿæœ‰ä»€ä¹ˆè§„å¾‹ã€‚
+    ä»¿å°„å˜æ¢ï¼š
+åŠ å¯†ï¼š 
+è§£å¯†ï¼š 
+å…¶ä¸­ï¼Œk1å’Œk2ä¸ºå¯†é’¥ï¼Œk1âˆˆZqï¼Œk2âˆˆZq*ã€‚
+å®žéªŒè¦æ±‚ï¼šåŠ /è§£å¯†ç¨‹åºå¯¹ä»»æ„æ»¡è¶³æ¡ä»¶çš„k1å’Œk2éƒ½èƒ½å¤Ÿå¤„ç†ã€‚
 
 */ 
 #include<iostream>
@@ -18,7 +18,7 @@ using namespace std;
 
 int main()
 {
-    char ko,kw;		//ÃÜÔ¿ k1¡¢k2¼°¼ÆÊýÆ÷ 
+    char ko,kw;		//å¯†é’¥ k1ã€k2åŠè®¡æ•°å™¨ 
 	int cint,koint,kwint,counter=0;
 	int choo; 
 	vector<int>cipher;
@@ -28,7 +28,7 @@ int main()
 	int a[25]={0};
 	char c,save;
 	bool choose=false;
-    cout<<"ÇëÊäÈëÃÜÔ¿ K1¡¢K2 µÄÖµ£º"<<endl;
+    cout<<"è¯·è¾“å…¥å¯†é’¥ K1ã€K2 çš„å€¼ï¼š"<<endl;
     cin >> ko >>kw;
 	cout<<ko<<" "<<kw<<endl;
 		
@@ -39,16 +39,18 @@ int main()
         { cout << "Error opening file"; exit (1); }
         while (!infile.eof() )
         {
-            infile>>c;			//µ¥¸ö×Ö·û¶ÁÈë
+            infile>>c;			//å•ä¸ªå­—ç¬¦è¯»å…¥
 			 
             //temp.push_back(c);
             if(c>='a' && c<='z')
 				a[c-'a']++;
 			else if(c>='A' && c<='Z')
 				a[c-'A']++;
+			else if(c == ' ')
+				a[c-' ']++;
             //counter++;
             koint=(int)ko, kwint=(int)kw, cint=(int)c; 
-            save = (koint+kwint*cint)%26;  //¼ÓÃÜ¹ý³Ì£¬Ê¹ÓÃÕûÊýÀ´Íê³ÉÈ¡Óà²Ù×÷,´æÈëÊý×Ö 
+            save = (koint+kwint*cint)%26;  //åŠ å¯†è¿‡ç¨‹ï¼Œä½¿ç”¨æ•´æ•°æ¥å®Œæˆå–ä½™æ“ä½œ,å­˜å…¥æ•°å­— 
 			cipher.push_back(save);  
             
         }
@@ -59,10 +61,10 @@ int main()
    
    for(int i=0;i<26;i++)
 		{
-			cout<<char(i+'a')<<"µÄÊýÁ¿Îª£º"<<a[i]<<endl;
+			cout<<char(i+'a')<<"çš„æ•°é‡ä¸ºï¼š"<<a[i]<<endl;
 		}
     infile.close();
-	cout<<"ÇëÑ¡ÔñÊÇ·ñÒª½âÃÜ£¬ÈôÒª½âÃÜ£¬ÇëÊäÈë1£¬·ñÔòÊäÈë0"<<endl;
+	cout<<"è¯·é€‰æ‹©æ˜¯å¦è¦è§£å¯†ï¼Œè‹¥è¦è§£å¯†ï¼Œè¯·è¾“å…¥1ï¼Œå¦åˆ™è¾“å…¥0"<<endl;
 	cin>>choo;
 	if(choo == 1)
 		{
